@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="master.html" />
+
+<head>
+  <title>Happy Client</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-8">
+      <form method="post" action="save_file" enctype="multipart/form-data">
+         Select File:<br />
+         <input type="file" name="userfile" /> <br />
+         <input type="submit" value="Upload File" />    
+      </form>
+    
+      <h2>Files Uploaded</h2>
+      <div py:for="file in current_files">
+        <a href="/viewfile/${file.id}">${file.filename}</a> [<a href="/delete/${file.id}">x</a>]
+      </div>
+    </div>
+  </div>
+  <em class="pull-right small"> Thank you for reading us.</em>
+</body>
+</html>

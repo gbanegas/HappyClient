@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="master.html" />
+
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+  <title>${wikipage.pagename} -  CrSith Blog</title>
+</head>
+
+<body>
+    <div class="main_content">
+        <li py:if="request.identity"><a href="/edit/${wikipage.pagename}">Edit this page</a></li>
+        <li py:if="request.identity"><a href="/add">Add page</a></li>
+        <b> <font size="6"><span py:replace="wikipage.title">Page Name Goes Here</span></font></b> <br />
+        <div style="float:right; width: 10em;"> Viewing
+            <span py:replace="wikipage.pagename">Page Name Goes Here</span>
+            <br/>
+            You can return to the <a href="/">Index</a>.
+        </div>
+
+       <font size="3"> <div py:replace="Markup(content)">Formatted content goes here.</div></font>
+
+        <div>
+            
+            <a href="/pagelist">View the page list</a>
+        </div>
+    </div>
+</body>
+</html>
